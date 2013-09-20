@@ -2,9 +2,10 @@
 
 
 ##TODO
-* Visit the homepage, launch a BB router
+* ~~Visit the homepage, launch a BB router~~
 * Search Etsy (change route for bookmarkability)
     * Instantiate a BB collection of items
+        * override the `fetch` commmand of a collection to query the Etsy API
     * launch Subsearch view (adds a single level subroute, that will be edited to accomadate both searches and filters)
     * launch Filter view
     * be able to Eliminate items from the list (put into a recently eliminated view?)
