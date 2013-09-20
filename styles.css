@@ -41,7 +41,7 @@ header > h1 {
 }
 
 #search-container > form > input[name=etsy-search] {
-    width: 500px;
+    width: 450px;
     font-size: 34px;
     float: left;
     padding: 10px;
@@ -51,7 +51,9 @@ header > h1 {
     outline: none;
 }
 
-#search-container > form > input[value="New Search"] {
+#search-container > form > input[type=submit],
+form > button {
+    float: left;
     padding: 22.5px;
     border: 1px solid #aaa;
     background-color: #e4e4e4;
@@ -62,6 +64,12 @@ header > h1 {
     line-height: 16px;
     font-size: 25px;
     cursor: pointer;
+    margin-left: -1px;
+}
+
+button#brand-new-search {
+    font-size: 15px;
+    padding: 22.5px 10px;
 }
 
 /* search results */
