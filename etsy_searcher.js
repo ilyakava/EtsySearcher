@@ -3,8 +3,8 @@ window.ES = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    console.log('Hello from Backbone!');
-    // instantiate the router
+  initialize: function($rootEl) {
+    new ES.Routers.Router($rootEl);
+    Backbone.history.start();
   }
 };
