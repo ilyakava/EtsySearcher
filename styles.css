@@ -1,10 +1,11 @@
 /* reset */
-body, html, div, tr, td, table, button, h1, header,
+body, html, div, ul, li, button, h1, header,
 aside, input {
 	margin: 0;
 	padding: 0;
 	font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
 	font-weight: 200;
+    list-style: none;
 }
 
 /* utilities */
@@ -13,6 +14,8 @@ aside, input {
 	display: table;
 	clear: both;
 }
+
+/* landing page basics */
 
 header {
     width: 100%;
@@ -25,32 +28,44 @@ header > h1 {
     font-weight: 900;
 }
 
-div#content {
-    width: 900px;
-    margin: auto;
-    padding-top: 40px;
+#content {
+    width: 800px;
+    margin: 20px auto;
 }
 
-div#search-container {
+#search-container {
     text-align: center;
     margin: auto;
 }
 
-div#search-container > input[name=etsy-search] {
+#search-container > input[name=etsy-search] {
     width: 500px;
     font-size: 34px;
-    /* line-height: 59px; */
     float: left;
     padding: 10px;
 }
 
-div#search-container > input[name=etsy-search]:focus {
+#search-container > input[name=etsy-search]:focus {
     outline: none;
 }
 
-div#search-container > button#new-search {
+button#new-search {
     padding: 25px;
     font-size: 25px;
     line-height: 13px;
     float: left;
+}
+
+/* search results */
+
+#results {
+    margin-top: 20px;
+}
+
+#results li.result {
+	background-color: red;
+	width: 250px;
+	height: 250px;
+	float: left;
+	margin: 6px;
 }
