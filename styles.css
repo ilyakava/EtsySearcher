@@ -1,18 +1,18 @@
 /* reset */
 body, html, div, ul, li, button, h1, header,
-aside, input {
-	margin: 0;
-	padding: 0;
-	font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
-	font-weight: 200;
+aside, input[type=text], input[type=submit] {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
     list-style: none;
 }
 
 /* utilities */
 .group {
-	content: "";
-	display: table;
-	clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* landing page basics */
@@ -40,22 +40,28 @@ header > h1 {
     margin: auto;
 }
 
-#search-container > input[name=etsy-search] {
+#search-container > form > input[name=etsy-search] {
     width: 500px;
     font-size: 34px;
     float: left;
     padding: 10px;
 }
 
-#search-container > input[name=etsy-search]:focus {
+#search-container > form > input[name=etsy-search]:focus {
     outline: none;
 }
 
-button#new-search {
-    padding: 25px;
+#search-container > form > input[value="New Search"] {
+    padding: 22.5px;
+    border: 1px solid #aaa;
+    background-color: #e4e4e4;
+    background-image: linear-gradient(#f4f4f4 20%,#f0f0f0 50%,#e8e8e8 52%,#eee 100%);
+    background-clip: padding-box;
+    box-shadow: 0 0 2px #fff inset,0 1px 0 rgba(0,0,0,.05);
+    color: #333;
+    line-height: 16px;
     font-size: 25px;
-    line-height: 13px;
-    float: left;
+    cursor: pointer;
 }
 
 /* search results */
@@ -65,20 +71,20 @@ button#new-search {
 }
 
 #results li.result {
-	background-color: red;
-	width: 250px;
-	height: 250px;
-	float: left;
-	margin: 6px;
+    background-color: red;
+    width: 250px;
+    height: 250px;
+    float: left;
+    margin: 6px;
 }
 
 /* sidebar filter */
 
 #filter-search {
-	background-color: green;
-	width: 200px;
-	height: 200px;
-	position: fixed;
-	top: 244;
-	left: 50;
+    background-color: green;
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 244;
+    left: 50;
 }
