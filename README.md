@@ -14,3 +14,5 @@
         * option to buy the item, i.e. redirect to Etsy's site
     * Infinite scroll, to get the next 25 items
         * Infinite scroll should be modified by the URI, so that filtering a search, and then scrolling down will yield a further search with the same filters
+    * Drag and drop images of products to save the products in some bucket
+        * or just check a box to save the image into a bucket
