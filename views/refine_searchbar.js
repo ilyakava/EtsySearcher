@@ -1,6 +1,5 @@
 ES.Views.RefineSearchbar = Backbone.View.extend({
-  id: 'search-container',
-  className: 'group',
+  id: 'search-bar',
 
   events: {
     "submit form": "search"

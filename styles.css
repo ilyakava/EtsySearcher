@@ -40,18 +40,18 @@ header > h1 {
     margin: auto;
 }
 
-#search-container > form > input[name=etsy-search] {
+#search-bar > form > input[name=etsy-search] {
     width: 450px;
     font-size: 34px;
     float: left;
     padding: 10px;
 }
 
-#search-container > form > input[name=etsy-search]:focus {
+#search-bar > form > input[name=etsy-search]:focus {
     outline: none;
 }
 
-#search-container > form > input[type=submit],
+#search-bar > form > input[type=submit],
 form > button {
     float: left;
     padding: 22.5px;
