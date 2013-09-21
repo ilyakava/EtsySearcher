@@ -9,6 +9,7 @@
     * Display the collection with a view
         * have this view create subviews on each individual item
     * launch Subsearch view (adds a single level subroute, that will be edited to accomadate both searches and filters)
+        * url [max length](http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers) is around 2,000 characters
     * launch Filter view
     * be able to Eliminate items from the list (put into a recently eliminated view?)
     * Click to get more info about the item
