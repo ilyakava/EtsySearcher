@@ -159,6 +159,21 @@ button#brand-new-search {
     display: block;
 }
 
+/* spinner gif on listings page */
+#listing-spinner {
+    margin: 40px;
+
+    /* border: solid; */
+}
+div.spinner.information > h5.title {
+    position: relative;
+    
+    top: 165;
+    font-size: 17;
+    font-style: italic;
+    left: 10;
+}
+
 /* sidebar filter */
 
 #filter-search {

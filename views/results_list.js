@@ -14,6 +14,11 @@ ES.Views.ResultsList = Backbone.View.extend({
       });
       that.$el.append(listingView.render().$el);
     });
+
+    this.$el.append(new EJS({
+      url: 'templates/listing_spinner',
+    }).render());
+    
     return this;
   }
 });
