@@ -16,10 +16,17 @@ ES.Collections.Listings = Backbone.Collection.extend({
 
   populate: function (callback) {
     var that = this;
-    Etsy.getActiveListings({"keywords": that.searchTerms}, function (data) {
-      that.add(data);
-      callback(that);
-    });
+    Etsy.getActiveListings(
+      {
+        "keywords": that.searchTerms,
+        "limit": 30,
+        "offset": 0
+      },
+      function (data) {
+        that.add(data);
+        callback(that);
+      }
+    );
     return this;
   }
 
