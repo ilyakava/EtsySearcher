@@ -10,7 +10,7 @@ ES.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "home",
     "*search": "firstSearch",
-    "*search/*subSearch": "subSearches"
+    "*search/*filters": "subSearches"
   },
 
   home: function () {
@@ -18,9 +18,9 @@ ES.Routers.Router = Backbone.Router.extend({
     this.$searchEl.html(searchBar.render().$el);
   },
 
-  firstSearch: function (urlSearch) {
+  firstSearch: function (uriSearch) {
     var that = this;
-    var searchTerm = decodeURIComponent(urlSearch);
+    var searchTerm = decodeURIComponent(uriSearch);
 
     // Displaying the results... first create the collection
     this.results = new ES.Collections.Listings().setSearch(searchTerm);
@@ -46,5 +46,14 @@ ES.Routers.Router = Backbone.Router.extend({
       collection: that.results
     });
     this.$filterEl.html(filterView.render().$el);
+  },
+
+  subSearches: function (uriSearch, uriFilters) {
+    var searchTerm = decodeURIComponent(uriSearch);
+    var filtersObj = JSON.parse(decodeURIComponent(filters));
+
+    if (this.results) {
+      this.results.filters = filtersObj;
+    }
   }
 });

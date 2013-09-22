@@ -2,6 +2,7 @@ ES.Collections.Listings = Backbone.Collection.extend({
   model: ES.Models.Listing,
   initialize: function () {
     this.searchTerms = null;
+    // collection needs to know to prune itself
     this.filters = {};
 
     // collection knows how fast it needs to grow, so that it can
@@ -16,6 +17,10 @@ ES.Collections.Listings = Backbone.Collection.extend({
     // collection when arguments are passed into `new` collection call
     this.searchTerms = search;
     return this;
+  },
+
+  setFilters: function () {
+
   },
 
   populate: function (callback) {
