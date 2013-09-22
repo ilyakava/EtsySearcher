@@ -4,10 +4,10 @@ ES.Views.OneListing = Backbone.View.extend({
 
   render: function () {
 		var that = this;
+    console.log(that.model);
     var listing = new EJS({
       url: 'templates/one_listing',
-      model: that.model
-    }).render();
+    }).render(that.model.attributes);
     this.$el.html(listing);
     return this;
 	}

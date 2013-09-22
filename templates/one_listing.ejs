@@ -1,0 +1,20 @@
+<!-- link to more information on item -->
+<a href="#">
+	<div class="picture-area">
+		<img src="<%= Images[0]['url_170x135'] %>">
+		<div class="description">
+			<%= description %>
+		</div>
+	</div>
+
+	<div class="information">
+		<h5 class="title"><%= title %></h5>
+		<p class="views"><strong><%= views %></strong> Views</p>
+		<!-- price is not always defined -->
+		<p class="price"><%= this.price || "In" %> <%= currency_code %></p>
+	</div>
+
+	<p class="see-more">
+		Click to see more!
+	</p>
+</a>

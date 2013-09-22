@@ -1,6 +1,7 @@
 ES.Views.ResultsList = Backbone.View.extend({
 	tagName: 'ul',
   id: 'results',
+  className: 'group',
 
   render: function () {
     var that = this;
