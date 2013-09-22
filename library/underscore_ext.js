@@ -7,8 +7,15 @@ _.mixin({
 
 _.mixin({
   uriifyForm : function(jQueryForm) {
-    var obj = $.extend.apply(null, jQueryForm.serializeArray());
-    return JSON.stringify(obj);
+    var arrOfFormObjs = jQueryForm.serializeArray();
+    var arrOfObjs = _(arrOfFormObjs).map(function (hash) {
+      // weird bug with object literal notation
+      var newHash = new Object();
+      newHash[hash.name] = hash.value;
+      return newHash;
+    });
+    var obj = $.extend.apply(null, [{}].concat(arrOfObjs));
+    return encodeURIComponent(JSON.stringify(obj));
   }
 });
 
