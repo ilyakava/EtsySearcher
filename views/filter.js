@@ -15,6 +15,8 @@ ES.Views.Filter = Backbone.View.extend({
     // merges the form array of hashes into one hash, and writes it to URI
     var filters = $.extend.apply(null, formData);
     var filtersString = JSON.stringify(filters);
+    console.log("filtersString");
+    console.log(filtersString);
     Backbone.history.navigate("#/" + encodeURIComponent(filtersString));
   },
 

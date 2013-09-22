@@ -9,8 +9,7 @@ ES.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "home",
-    "*search": "firstSearch",
-    "*search/*filters": "subSearches"
+    "*searchParams": "search"
   },
 
   home: function () {
@@ -18,12 +17,12 @@ ES.Routers.Router = Backbone.Router.extend({
     this.$searchEl.html(searchBar.render().$el);
   },
 
-  firstSearch: function (uriSearch) {
+  search: function (uriSearch) {
     var that = this;
-    var searchTerm = decodeURIComponent(uriSearch);
+    var searchParams = _.objectifyURI(uriSearch);
 
     // Displaying the results... first create the collection
-    this.results = new ES.Collections.Listings().setSearch(searchTerm);
+    this.results = new ES.Collections.Listings().setSearch(searchParams);
     // and fetch items from API, and then render with a callback
     this.results.populate(
       function (collection) {
