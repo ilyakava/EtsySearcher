@@ -12,15 +12,23 @@
 	<label>Category:
 		<select name="category">
 			<% _(categories).each(function (category) { %>
-				<option value="<%= this.category %>"><%= _.humanize(category) %></option>
+				<option
+					value="<%= category %>"
+					<%= if (this.category == category) { return 'selected="selected"' } %>>
+					<%= _.humanize(category) %>
+				</option>
 			<% }) %>
 		</select>
 	</label>
 
 	<label>Sort By:
 		<select name="sort_on">
-			<% _(sortOptions).each(function (option) { %>
-				<option value="<%= this.option %>"><%= _.humanize(option) %></option>
+			<% _(sortOptions).each(function (sortOption) { %>
+				<option
+					value="<%= sortOption %>"
+					<%= if (this.sort_on == sortOption) { return 'selected="selected"' } %>>
+					<%= _.humanize(sortOption) %>
+				</option>
 			<% }) %>
 		</select>
 	</label>
