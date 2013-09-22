@@ -178,9 +178,5 @@ div.spinner.information > h5.title {
 
 #filter-search {
     background-color: green;
-    width: 200px;
     height: 200px;
-    position: fixed;
-    top: 244;
-    left: 50;
 }
