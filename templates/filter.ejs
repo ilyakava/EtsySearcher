@@ -5,16 +5,24 @@
 <form>
 	<label>Price Range:
 		<input type="text" name="min_price" value="<%= this.min_price || '' %>">
+	</label>
+
+	<label>
 		to
 		<input type="text" name="max_price" value="<%= this.min_price || '' %>">
 	</label>
 
+	<button class="price-range">
+		Save Range
+	</button>
+
 	<label>Category:
 		<select name="category">
+			<option value="">None</option>
 			<% _(categories).each(function (category) { %>
 				<option
 					value="<%= category %>"
-					<%= if (this.category == category) { return 'selected="selected"' } %>>
+					<%= this.category == category ? 'selected="selected"' : '' %>>
 					<%= _.humanize(category) %>
 				</option>
 			<% }) %>
@@ -23,10 +31,11 @@
 
 	<label>Sort By:
 		<select name="sort_on">
+			<option value="">None</option>
 			<% _(sortOptions).each(function (sortOption) { %>
 				<option
 					value="<%= sortOption %>"
-					<%= if (this.sort_on == sortOption) { return 'selected="selected"' } %>>
+					<%= this.sort_on == sortOption ? 'selected="selected"' : '' %>>
 					<%= _.humanize(sortOption) %>
 				</option>
 			<% }) %>

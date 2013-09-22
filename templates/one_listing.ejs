@@ -1,7 +1,7 @@
 <!-- link to more information on item -->
 <a href="#">
 	<div class="picture-area">
-		<img src="<%= Images[0]['url_170x135'] %>">
+		<img src="<%= this.Images ? Images[0]['url_170x135'] : 'http://placekitten.com/170/135' %>">
 		<div class="description">
 			<%= description.trimLeft().slice(0,110) + "..." %>
 		</div>
