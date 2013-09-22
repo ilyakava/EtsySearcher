@@ -32,6 +32,6 @@ ES.Routers.Router = Backbone.Router.extend({
     var resultsView = new ES.Views.ResultsList({
       collection: that.results
     });
-
+    this.$resultsEl.html(resultsView.render().$el);
   }
 });
