@@ -4,6 +4,7 @@
 		<script type="text/javascript" src="library/underscore.js"></script>
 		<script type="text/javascript" src="library/backbone.js"></script>
 		<script type="text/javascript" src="library/ejs.js"></script>
+		<script type="text/javascript" src="library/jquery.dotdotdot.js"></script>
 
 		<!-- contains API key -->
 		<script type="text/javascript" src="dev.js"></script>
@@ -42,8 +43,14 @@
 			<div id="results-container">
 				<ul id="results">
 					<li class="result">
-						<img src="http://placekitten.com/170/135">
-						<div class="description"></div>
+						<div class="picture-area">
+							<img src="http://placekitten.com/170/135">
+							<div class="description">Very many words Very many words Very many words Very many words Very many words Very many words Very many words Very many words Very many words Very many words</div>
+							<script>
+								$('div.picture-area > div.description').dotdotdot();
+							</script>
+						</div>
+
 						<div class="information">
 							<h5 class="title">Title of thing that is very long and goes over the line please</h5>
 							<p class="views"><strong>1455</strong> Views</p>

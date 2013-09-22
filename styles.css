@@ -87,6 +87,12 @@ button#brand-new-search {
     margin: 6px;
 }
 
+/* weird positioning behaviour */
+#results > li.result > div.information {
+    position: relative;
+    top: -135px;
+}
+
 #results > li.result h5.title {
     width: 100%;
     text-overflow: ellipsis;
@@ -106,6 +112,26 @@ button#brand-new-search {
     text-align: right;
     font-size: 13px;
     display: inline-table;
+}
+
+#results > li.result > div.picture-area > div.description {
+    display: block;
+    position: relative;
+    top: -135px;
+    height: 135px;
+    background-color: blue;
+    overflow-y: hidden;
+    /* display none won't work, needs to be on the DOM for jquery.dotdotdot */
+    opacity: 0;
+}
+
+#results > li.result:hover > div.picture-area > div.description {
+    opacity: 100;
+}
+
+#results > li.result:hover > div.picture-area {
+    min-height: 135px;
+    display: block;
 }
 
 /* sidebar filter */
