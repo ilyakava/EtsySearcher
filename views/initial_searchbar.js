@@ -2,7 +2,7 @@ ES.Views.InitialSearchbar = Backbone.View.extend({
   id: 'search-bar',
 
   events: {
-    "submit form": "search"
+    "submit form": "firstSearch"
   },
 
   render: function () {
@@ -11,9 +11,9 @@ ES.Views.InitialSearchbar = Backbone.View.extend({
     return this;
   },
 
-  search: function (event) {
+  firstSearch: function (event) {
     event.preventDefault();
-    var searchTerm = $(event.target).children(":first").val();
-    Backbone.history.navigate("#/" + encodeURIComponent(searchTerm));
+    var searchTerm = _.uriifyForm($(event.target));
+    Backbone.history.navigate("#/" + searchTerm);
   }
 });
