@@ -42,18 +42,18 @@ header > h1 {
     margin: auto;
 }
 
-#search-bar > form > input[name=keywords] {
+#search-bar > form input[name=keywords] {
     width: 450px;
     font-size: 34px;
     float: left;
     padding: 10px;
 }
 
-#search-bar > form > input[name=keywords]:focus {
+#search-bar > form input[name=keywords]:focus {
     outline: none;
 }
 
-#search-bar > form > input[type=submit],
+#search-bar > form input[type=submit],
 form > button {
     float: left;
     padding: 22.5px;
