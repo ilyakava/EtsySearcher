@@ -2,6 +2,7 @@ ES.Collections.Listings = Backbone.Collection.extend({
   model: ES.Models.Listing,
   initialize: function (search) {
     this.searchTerms = null;
+    this.filters = {};
   },
 
   setSearch: function (search) {

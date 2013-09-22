@@ -3,6 +3,7 @@ ES.Routers.Router = Backbone.Router.extend({
     this.$rootEl = $rootEl;
     this.$searchEl = $rootEl.find('#search-container');
     this.$resultsEl = $rootEl.find('#results-container');
+    this.$filterEl = $rootEl.find('#filter-container');
     this.results = null;
   },
 
@@ -21,7 +22,7 @@ ES.Routers.Router = Backbone.Router.extend({
     var that = this;
     var searchTerm = decodeURIComponent(urlSearch);
 
-    // create the collection
+    // Displaying the results... first create the collection
     this.results = new ES.Collections.Listings().setSearch(searchTerm);
     // and fetch items from API, and then render with a callback
     this.results.populate(
@@ -39,5 +40,11 @@ ES.Routers.Router = Backbone.Router.extend({
     // do a different action, refinning search instead of API-call-search
     var searchBar = new ES.Views.RefineSearchbar();
     this.$searchEl.html(searchBar.render().$el);
+
+    // render filter bar
+    var filterView = new ES.Views.Filter({
+      collection: that.results
+    });
+    this.$filterEl.html(filterView.render().$el);
   }
 });

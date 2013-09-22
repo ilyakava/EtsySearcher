@@ -1,0 +1,27 @@
+<% var categories = ['accessories', 'art', 'bags_and_purses', 'bath_and_beauty', 'books_and_zines', 'candles', 'ceramics_and_pottery', 'children', 'clothing', 'crochet', 'dolls_and_miniatures', 'everything_else', 'furniture', 'geekery', 'glass', 'holidays', 'housewares', 'jewelry', 'knitting', 'music', 'needlecraft', 'paper_goods', 'patterns', 'pets', 'plants_and_edibles', 'quilts', 'supplies', 'toys', 'vintage', 'weddings', 'woodworking'] %>
+
+<% var sortOptions = ["created", "price", "score"] %>
+
+<form>
+	<label>Price Range:
+		<input type="text" name="min_price" value="<%= this.min_price || '' %>">
+		to
+		<input type="text" name="max_price" value="<%= this.min_price || '' %>">
+	</label>
+
+	<label>Category:
+		<select name="category">
+			<% _(categories).each(function (category) { %>
+				<option value="<%= this.category %>"><%= _.humanize(category) %></option>
+			<% }) %>
+		</select>
+	</label>
+
+	<label>Sort By:
+		<select name="sort_on">
+			<% _(sortOptions).each(function (option) { %>
+				<option value="<%= this.option %>"><%= _.humanize(option) %></option>
+			<% }) %>
+		</select>
+	</label>
+</form>
