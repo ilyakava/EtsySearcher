@@ -3,7 +3,7 @@
 	<div class="picture-area">
 		<img src="<%= Images[0]['url_170x135'] %>">
 		<div class="description">
-			<%= description %>
+			<%= description.trimLeft().slice(0,110) + "..." %>
 		</div>
 	</div>
 
