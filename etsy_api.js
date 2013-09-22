@@ -2,8 +2,10 @@ Etsy = {
   getActiveListings: function (params, callback) {
     var url = "https://openapi.etsy.com/v2/listings/active.js";
 
+    // more associations: http://www.etsy.com/developers/documentation/getting_started/resources#section_associations
     var baseParams = {
       "api_key": EtsyAPI.keystring,
+      "includes": "Images:1:0"
     };
 
     $.ajax({
