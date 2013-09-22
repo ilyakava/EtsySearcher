@@ -42,14 +42,14 @@ header > h1 {
     margin: auto;
 }
 
-#search-bar > form > input[name=etsy-search] {
+#search-bar > form > input[name=keywords] {
     width: 450px;
     font-size: 34px;
     float: left;
     padding: 10px;
 }
 
-#search-bar > form > input[name=etsy-search]:focus {
+#search-bar > form > input[name=keywords]:focus {
     outline: none;
 }
 
