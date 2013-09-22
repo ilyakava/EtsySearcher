@@ -33,7 +33,7 @@ header > h1 {
 }
 
 #content {
-    width: 800px;
+    width: 820px;
     margin: 20px auto;
 }
 
@@ -145,17 +145,16 @@ button#brand-new-search {
     height: 125px;
     background-color: rgb(230,230,230);
     overflow-y: hidden;
-    /* display none won't work, needs to be on the DOM for jquery.dotdotdot */
     opacity: 0;
     padding: 5px;
     z-index: 5;
 }
 
-#results > li.result:hover > div.picture-area > div.description {
+#results > li.result:hover div.picture-area > div.description {
     opacity: .70;
 }
 
-#results > li.result:hover > div.picture-area {
+#results > li.result:hover div.picture-area {
     min-height: 135px;
     display: block;
 }

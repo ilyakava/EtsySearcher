@@ -4,7 +4,6 @@
 		<script type="text/javascript" src="library/underscore.js"></script>
 		<script type="text/javascript" src="library/backbone.js"></script>
 		<script type="text/javascript" src="library/ejs.js"></script>
-		<script type="text/javascript" src="library/jquery.dotdotdot.min.js"></script>
 
 		<!-- contains API key -->
 		<script type="text/javascript" src="dev.js"></script>
@@ -41,40 +40,12 @@
 			</aside>
 
 			<div id="results-container">
-				<ul id="results">
-
-					<li class="result">
-						<a href="#">
-							<div class="picture-area">
-								<img src="http://placekitten.com/170/135">
-								<div class="description">Very many words Very many words Very many words Very many words Very many words Very many words Very many words Very many words Very many words Very many words</div>
-								<script>
-									$('div.picture-area > div.description').dotdotdot();
-								</script>
-							</div>
-
-							<div class="information">
-								<h5 class="title">Title of thing that is very long and goes over the line please</h5>
-								<p class="views"><strong>1455</strong> Views</p>
-								<p class="price">70.00 USD</p>
-							</div>
-
-							<p class="see-more">
-								Click to see more!
-							</p>
-						</a>
-					</li>
-						
-				</ul>
-			</ul>
+			</div>
 		</div>
 	</body>
 
 	<script>
 		// starts my backbone module
-		// $(document).ready(function () {
-
-		// })
 		window.ES.initialize($('#content'));
 	</script>
 </html>
