@@ -19,12 +19,13 @@ ES.Routers.Router = Backbone.Router.extend({
 
   firstSearch: function (urlSearch) {
     var that = this;
-
     var searchTerm = decodeURIComponent(urlSearch);
+
+    // create the collection and fetch items from API
     this.results = new ES.Collections.Listings(searchTerm).populate();
 
     // rendering a new searchbar because now form submission will
-    // do a different action, refinning search instead of API call search
+    // do a different action, refinning search instead of API-call-search
     var searchBar = new ES.Views.RefineSearchbar();
     this.$searchEl.html(searchBar.render().$el);
 
