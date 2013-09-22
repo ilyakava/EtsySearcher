@@ -25,3 +25,7 @@
         * Infinite scroll should be modified by the URI, so that filtering a search, and then scrolling down will yield a further search with the same filters
     * Drag and drop images of products to save the products in some bucket
         * or just check a box to save the image into a bucket
+* Add filter support for:
+    * color
+    * tags
+    * handle sub categories
