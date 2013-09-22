@@ -79,18 +79,18 @@ button#brand-new-search {
 }
 
 #results li.result {
-    background-color: red;
+    background-color: rgb(240,240,240);
     padding: 10px;
     width: 170px;
-    height: 250px;
+    height: 165px;
     float: left;
     margin: 6px;
 }
 
 /* weird positioning behaviour */
-#results > li.result > div.information {
-    position: relative;
-    top: -135px;
+
+#results div.picture-area {
+    max-height: 135px
 }
 
 #results > li.result h5.title {
@@ -98,6 +98,23 @@ button#brand-new-search {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+/* see more! */
+#results > li.result p.see-more {
+    position: relative;
+    z-index: 2;
+    top: -32;
+    background-color: rgb(240,240,240);
+    left: 0;
+    width: 170px;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    opacity: 0;
+}
+
+#results > li.result:hover p.see-more {
+    opacity: 1;
 }
 
 #results > li.result p.views {
@@ -114,19 +131,26 @@ button#brand-new-search {
     display: inline-table;
 }
 
+#results > li.result > div.picture-area > img {
+    height: 135px;
+    width: 170px;
+}
+
 #results > li.result > div.picture-area > div.description {
     display: block;
     position: relative;
     top: -135px;
-    height: 135px;
-    background-color: blue;
+    height: 125px;
+    background-color: rgb(230,230,230);
     overflow-y: hidden;
     /* display none won't work, needs to be on the DOM for jquery.dotdotdot */
     opacity: 0;
+    padding: 5px;
+    z-index: 5;
 }
 
 #results > li.result:hover > div.picture-area > div.description {
-    opacity: 100;
+    opacity: .70;
 }
 
 #results > li.result:hover > div.picture-area {
