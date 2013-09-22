@@ -6,8 +6,8 @@
 * Search Etsy (change route for bookmarkability)
     * ~~Instantiate a BB collection of items~~
         * ~~create a `populate` commmand of a collection to query the Etsy API~~
-    * Display the collection with a view
-        * have this view create subviews on each individual item
+    * ~~Display the collection with a view~~
+        * ~~have this view create subviews on each individual item~~
     * launch Subsearch view (adds a single level subroute, that will be edited to accomadate both searches and filters)
         * url [max length](http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers) is around 2,000 characters
     * launch Filter view
@@ -16,6 +16,7 @@
         * **emergent problem**: setting many filters, and then querying, and then removing the filters, will only affect results returned from further queries
         * Semantics: "listing(s)" are from Etsy, but they are "results" when they are displayed on the page. "Results" are comprised of many "listings"
     * be able to Eliminate items from the list (put into a recently eliminated view?)
+    * header animation that transforms "SearchEtsy" to "SearchingEtsy," with information with what you are searching for
     * Click to get more info about the item
         * Lightbox?
         * should this have a 2 level deep nested subroute?
