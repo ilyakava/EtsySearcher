@@ -1,6 +1,7 @@
 /* reset */
 body, html, div, ul, li, button, h1, header,
-aside, input[type=text], input[type=submit], h5, p, a {
+aside, input[type=text], input[type=submit], h5,
+p, a, select, option {
     margin: 0;
     padding: 0;
     font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
