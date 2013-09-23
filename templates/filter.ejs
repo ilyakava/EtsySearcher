@@ -9,7 +9,7 @@
 
 	<label>
 		to
-		<input type="text" name="max_price" value="<%= this.min_price || '' %>">
+		<input type="text" name="max_price" value="<%= this.max_price || '' %>">
 	</label>
 
 	<button class="price-range">
@@ -17,12 +17,15 @@
 	</button>
 
 	<label>Category:
+		<% var fillInCategory = this.category %>
 		<select name="category">
 			<option value="">None</option>
 			<% _(categories).each(function (category) { %>
 				<option
 					value="<%= category %>"
-					<%= this.category == category ? 'selected="selected"' : '' %>>
+					<% if (fillInCategory == category) { %>
+						<%= selected="selected" %>
+					<% } %>>
 					<%= _.humanize(category) %>
 				</option>
 			<% }) %>
@@ -30,12 +33,15 @@
 	</label>
 
 	<label>Sort By:
+		<% var fillInSortOn = this.sort_on %>
 		<select name="sort_on">
 			<option value="">None</option>
 			<% _(sortOptions).each(function (sortOption) { %>
 				<option
 					value="<%= sortOption %>"
-					<%= this.sort_on == sortOption ? 'selected="selected"' : '' %>>
+					<% if (fillInSortOn == sortOption) { %>
+						<%= selected="selected" %>
+					<% } %>>
 					<%= _.humanize(sortOption) %>
 				</option>
 			<% }) %>
