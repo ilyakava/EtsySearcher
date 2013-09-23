@@ -2,8 +2,6 @@ ES.Routers.Router = Backbone.Router.extend({
   initialize: function ($rootEl) {
     this.$rootEl = $rootEl;
     this.$searchEl = $rootEl.find('#search-container');
-    this.searchBarView = null;
-
     this.$resultsEl = $rootEl.find('#results-container');
     this.$filterEl = $rootEl.find('#filter-container');
     this.results = null;
@@ -16,14 +14,11 @@ ES.Routers.Router = Backbone.Router.extend({
 
   home: function () {
     var searchBar = new ES.Views.InitialSearchbar();
-    this.searchBarView = searchBar;
     this.$searchEl.html(searchBar.render().$el);
   },
 
   search: function (uriSearch) {
     var that = this;
-    if (this.searchBarView) { this.searchBarView.close(); }
-
     var searchParams = _.objectifyURI(uriSearch);
     console.log("route has changed, new search object!");
     console.log(searchParams);
