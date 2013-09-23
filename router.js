@@ -18,6 +18,8 @@ ES.Routers.Router = Backbone.Router.extend({
   },
 
   search: function (uriSearch) {
+    // litte heading animation
+    $('.no-search').removeClass('no-search');
     var that = this;
     var searchParams = _.objectifyURI(uriSearch);
 
