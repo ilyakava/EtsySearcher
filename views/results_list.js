@@ -3,6 +3,12 @@ ES.Views.ResultsList = Backbone.View.extend({
   id: 'results',
   className: 'group',
 
+  initialize: function () {
+    var that = this;
+    var renderCallback = that.render.bind(that);
+    that.listenTo(that.collection, "add change remove", renderCallback);
+  },
+
   render: function () {
     var that = this;
     // clear this view, then render each listing

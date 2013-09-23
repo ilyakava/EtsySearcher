@@ -37,24 +37,27 @@ ES.Collections.Listings = Backbone.Collection.extend({
   },
 
   prune: function () {
+    console.log("Pruning!");
     var that = this;
     // remove according to this.searchParams
-    var remaining = this.reject(function (model) {
-      return this.searchParams.get("min_price") > model.get("min_price") ||
-        this.searchParams.get("max_price") < model.get("max_price") ||
+    var remaining = that.reject(function (model) {
+      return that.searchParams.get("min_price") > model.get("min_price") ||
+        that.searchParams.get("max_price") < model.get("max_price") ||
         !(_(model.get("category_path")).select(function (model_cat) {
-          return model_cat.toLowerCase() == this.searchParams.get("category");
+          return model_cat.toLowerCase() == that.searchParams.get("category");
         }).length);
     });
 
-    this.models = _.sortBy(remaining, function (model) {
-      if (this.searchParams.get("sort_on") == "price") {
-        return parseInt(model.get("price"));
-      } else if (this.searchParams.get("sort_on") == "created") {
-        return model.get("original_creation_tsz");
-      }
-    });
-    return this;
+    that.reset(
+      _.sortBy(remaining, function (model) {
+        if (that.searchParams.get("sort_on") == "price") {
+          return parseInt(model.get("price"));
+        } else if (that.searchParams.get("sort_on") == "created") {
+          return model.get("original_creation_tsz");
+        }
+      })
+    );
+    return that;
   }
 
 });

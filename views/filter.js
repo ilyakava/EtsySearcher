@@ -13,7 +13,7 @@ ES.Views.Filter = Backbone.View.extend({
     event.preventDefault();
 
     var formParams = _.objectifyForm($(event.target).parents('form'));
-    var mergedParams = $.extend({}, that.collection.searchParams, formParams);
+    var mergedParams = $.extend({}, that.collection.searchParams.attributes, formParams);
     
     Backbone.history.navigate("#/redirecting");
     Backbone.history.navigate("#/" + _.uriifyObject(mergedParams));
