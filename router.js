@@ -2,6 +2,8 @@ ES.Routers.Router = Backbone.Router.extend({
   initialize: function ($rootEl) {
     this.$rootEl = $rootEl;
     this.$searchEl = $rootEl.find('#search-container');
+    this.searchBarView = null;
+
     this.$resultsEl = $rootEl.find('#results-container');
     this.$filterEl = $rootEl.find('#filter-container');
     this.results = null;
@@ -14,30 +16,44 @@ ES.Routers.Router = Backbone.Router.extend({
 
   home: function () {
     var searchBar = new ES.Views.InitialSearchbar();
+    this.searchBarView = searchBar;
     this.$searchEl.html(searchBar.render().$el);
   },
 
   search: function (uriSearch) {
     var that = this;
+    if (this.searchBarView) { this.searchBarView.close(); }
+
     var searchParams = _.objectifyURI(uriSearch);
+    console.log("route has changed, new search object!");
+    console.log(searchParams);
 
     // Displaying the results... first create the collection
-    this.results = new ES.Collections.Listings().setSearch(searchParams);
-    // and fetch items from API, and then render with a callback
-    this.results.populate(
-      function (collection) {
-        // insert listings on the page for the first time
-        console.log(collection);
-        var resultsView = new ES.Views.ResultsList({
-          collection: collection
-        });
-        that.$resultsEl.html(resultsView.render().$el);
-      }
-    );
+    // don't make a new collection for repeat searches
+    this.results = this.results || new ES.Collections.Listings();
+    // but searchParams of collection should always update from URI
+    this.results.setSearch(searchParams);
 
-    // rendering a new searchbar because now form submission will
-    // do a different action, refinning search instead of API-call-search
-    var searchBar = new ES.Views.RefineSearchbar();
+    // fetch items from API on first load,
+    // and then render with a callback
+    if (!this.results.length) {
+      this.results.populate(
+        function (collection) {
+          // insert listings on the page for the first time
+          console.log(collection);
+          var resultsView = new ES.Views.ResultsList({
+            collection: collection
+          });
+          that.$resultsEl.html(resultsView.render().$el);
+        }
+      );
+    }
+
+    // rendering a new searchbar, because now, form submission will perform
+    // a different action: refinning search instead of new API-call-search
+    var searchBar = new ES.Views.RefineSearchbar({
+      collection: that.results
+    });
     this.$searchEl.html(searchBar.render().$el);
 
     // render filter bar

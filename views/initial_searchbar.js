@@ -15,5 +15,9 @@ ES.Views.InitialSearchbar = Backbone.View.extend({
     event.preventDefault();
     var searchTerm = _.uriifyForm($(event.target));
     Backbone.history.navigate("#/" + searchTerm);
+  },
+
+  close: function () {
+    $(this.$el).undelegate('form', 'submit');
   }
 });

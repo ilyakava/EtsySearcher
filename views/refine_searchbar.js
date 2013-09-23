@@ -2,27 +2,27 @@ ES.Views.RefineSearchbar = Backbone.View.extend({
   id: 'search-bar',
 
   events: {
-    "submit form": "search"
-  },
-
-  initialize: function (searchTerm) {
-    this.searchTerm = searchTerm;
+    "submit form": "addKeywords"
   },
 
   render: function () {
     var that = this;
     var searchBar = new EJS({
-      url: 'templates/refine_searchbar',
-      // searchTerm: that.searchTerm
+      url: 'templates/refine_searchbar'
     }).render();
     
     this.$el.html(searchBar);
     return this;
   },
 
-  search: function (event) {
+  addKeywords: function (event) {
+    console.log("adding keywords!");
+    var that = this;
     event.preventDefault();
-    // var searchTerm = $(event.target).children(":first").val();
-    // Backbone.history.navigate("#/" + encodeURIComponent(searchTerm));
+
+    var formParams = _.objectifyForm($(event.target));
+    var mergedParams = $.extend({}, formParams, that.collection.searchParams);
+
+    Backbone.history.navigate("#/" + _.uriifyObject(mergedParams));
   }
 });

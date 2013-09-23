@@ -28,8 +28,8 @@ _.mixin({
 
 _.mixin({
   uriifyForm : function(jQueryForm) {
-    var obj = objectifyForm(jQueryForm);
-    return uriifyObject(obj);
+    var obj = _.objectifyForm(jQueryForm);
+    return _.uriifyObject(obj);
   }
 });
 

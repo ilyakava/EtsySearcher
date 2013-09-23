@@ -9,15 +9,13 @@ ES.Views.Filter = Backbone.View.extend({
 
   updateFilters: function (event) {
     console.log("filters changed!");
+    var that = this;
     event.preventDefault();
-    var formData = $(event.target).parents('form').serializeArray();
 
-    // merges the form array of hashes into one hash, and writes it to URI
-    var filters = $.extend.apply(null, formData);
-    var filtersString = JSON.stringify(filters);
-    console.log("filtersString");
-    console.log(filtersString);
-    Backbone.history.navigate("#/" + encodeURIComponent(filtersString));
+    var formParams = _.objectifyForm($(event.target).parents('form'));
+    var mergedParams = $.extend({}, formParams, that.collection.searchParams);
+
+    Backbone.history.navigate("#/" + _.uriifyObject(mergedParams));
   },
 
   render: function () {
