@@ -118,6 +118,17 @@ button#brand-new-search {
     padding: 22.5px 10px;
 }
 
+/* filter status */
+
+#filter > mark {
+    text-align: center;
+}
+
+#filter > mark > p {
+    font-style: italic;
+    letter-spacing: 1;
+}
+
 /* search results */
 
 #results-container {

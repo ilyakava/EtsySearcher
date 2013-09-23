@@ -49,3 +49,10 @@
 		</select>
 	</label>
 </form>
+
+<mark>
+	<% var that = this, statusStr = _.humanize(JSON.stringify(_.etsyifyHash(that))); %>
+	<p>
+		Currently browsing:<%= " " + statusStr.replace(/"|{|}/g, "").replace(/,/g, ", ") + "." %>
+	</p>
+</mark>
