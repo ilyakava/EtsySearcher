@@ -20,7 +20,7 @@ ES.Views.RefineSearchbar = Backbone.View.extend({
     var that = this;
     event.preventDefault();
 
-    var oldParams = this.collection.searchParams;
+    var oldParams = this.collection.searchParams.attributes;
     var formParams = _.objectifyForm($(event.target));
     // not in initialize because BB will make a item in the
     // collection when arguments are passed into `new` collection call

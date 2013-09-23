@@ -25,7 +25,7 @@ ES.Views.Filter = Backbone.View.extend({
 
     var filterHtml = new EJS({
       url: 'templates/filter'
-    }).render(that.collection.searchParams);
+    }).render(that.collection.searchParams.attributes);
 
     this.$el.html(filterHtml);
     return this;
