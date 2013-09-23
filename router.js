@@ -50,10 +50,12 @@ ES.Routers.Router = Backbone.Router.extend({
     this.$searchEl.html(searchBar.render().$el);
 
     // render filter bar
-    var filterView = new ES.Views.Filter({
-      collection: that.results
-    });
-    this.$filterEl.html(filterView.render().$el);
+    if (!this.$filterEl.html()) {
+      var filterView = new ES.Views.Filter({
+        collection: that.results
+      });
+      this.$filterEl.html(filterView.render().$el);
+    }
   },
 
   subSearches: function (uriSearch, uriFilters) {
