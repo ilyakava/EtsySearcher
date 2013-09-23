@@ -51,13 +51,14 @@ ES.Routers.Router = Backbone.Router.extend({
     });
     this.$searchEl.html(searchBar.render().$el);
 
-    // render filter bar
-    if (!this.$filterEl.html()) {
+    // render filter bar, conditional commented out because now,
+    // filter status inside filter view needs to be updated
+    // if (!this.$filterEl.html()) {
       var filterView = new ES.Views.Filter({
         collection: that.results
       });
       this.$filterEl.html(filterView.render().$el);
-    }
+    // }
   },
 
   subSearches: function (uriSearch, uriFilters) {
