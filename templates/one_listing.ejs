@@ -3,15 +3,15 @@
 	<div class="picture-area">
 		<img src="<%= this.Images ? Images[0]['url_170x135'] : 'http://placekitten.com/170/135' %>">
 		<div class="description">
-			<%= description.trimLeft().slice(0,110) + "..." %>
+			<%= this.description ? description.trimLeft().slice(0,110) + "..." : "" %>
 		</div>
 	</div>
 
 	<div class="information">
-		<h5 class="title"><%= title %></h5>
-		<p class="views"><strong><%= views %></strong> Views</p>
+		<h5 class="title"><%= this.title || " " %></h5>
+		<p class="views"><strong><%= this.views || "0" %></strong> Views</p>
 		<!-- price is not always defined -->
-		<p class="price"><%= this.price || "In" %> <%= currency_code %></p>
+		<p class="price"><%= this.price || "In" %> <%= this.currency_code || "USD" %></p>
 	</div>
 
 	<p class="see-more">
