@@ -11,6 +11,7 @@ ES.Views.ResultsList = Backbone.View.extend({
 
   render: function () {
     var that = this;
+    console.log("rendering results list");
     // clear this view, then render each listing
     this.$el.html();
 
