@@ -48,11 +48,11 @@ _.mixin({
     // because that will be detrimental for etsy API
     var newHash = new Object();
     for (var key in hash) {
-      if (hash.key && (hash.key != "none")) {
-        newHash[key] = hash.key;
+      if (hash[key] && (hash[key] != "none")) {
+        newHash[key] = hash[key];
       }
     }
-    console.log("pruifying hash!: " + JSON.stringify(newHash));
+    console.log("purifying hash!: " + JSON.stringify(newHash));
     return newHash;
   }
 });
