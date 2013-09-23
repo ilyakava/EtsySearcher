@@ -37,17 +37,19 @@ ES.Collections.Listings = Backbone.Collection.extend({
   },
 
   prune: function () {
-    console.log("Pruning!");
+    console.log("Pruning current collection of listings!");
     var that = this;
-    // remove according to this.searchParams
+    // remove according to this.searchParams, once any of 3 truth tests
+    // return true, that item is rejected.
     var remaining = that.reject(function (model) {
-      return that.searchParams.get("min_price") > model.get("min_price") ||
-        that.searchParams.get("max_price") < model.get("max_price") ||
+      return that.searchParams.get("min_price") > model.get("price") ||
+        that.searchParams.get("max_price") < model.get("price") ||
         !(_(model.get("category_path")).select(function (model_cat) {
           return model_cat.toLowerCase() == that.searchParams.get("category");
         }).length);
     });
-
+    
+    console.log("have pruned, " + remaining.length + " listings remain");
     that.reset(
       _.sortBy(remaining, function (model) {
         if (that.searchParams.get("sort_on") == "price") {
