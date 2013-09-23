@@ -42,14 +42,21 @@ ES.Collections.Listings = Backbone.Collection.extend({
     // remove according to this.searchParams, once any of 3 truth tests
     // return true, that item is rejected.
     var remaining = that.reject(function (model) {
-      return that.searchParams.get("min_price") > model.get("price") ||
-        that.searchParams.get("max_price") < model.get("price") ||
-        !(_(model.get("category_path")).select(function (model_cat) {
-          return model_cat.toLowerCase() == that.searchParams.get("category");
-        }).length);
+      // matching categories
+      var matchingCats = _(model.get("category_path")).select(function (model_cat) {
+        var paramCat = that.searchParams.get("category");
+        if (paramCat && (paramCat != "none")) {
+          return model_cat.toLowerCase() == paramCat;
+        } else {
+          return true;
+        }
+      });
+
+      return (parseInt(that.searchParams.get("min_price")) > parseInt(model.get("price"))) ||
+        (parseInt(that.searchParams.get("max_price")) < parseInt(model.get("price"))) ||
+        !matchingCats.length;
     });
-    
-    console.log("have pruned, " + remaining.length + " listings remain");
+
     that.reset(
       _.sortBy(remaining, function (model) {
         if (that.searchParams.get("sort_on") == "price") {
@@ -59,6 +66,7 @@ ES.Collections.Listings = Backbone.Collection.extend({
         }
       })
     );
+    console.log("have pruned, " + remaining.length + " listings remain, and " + that.length + "in collection");
     return that;
   }
 
