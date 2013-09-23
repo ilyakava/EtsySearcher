@@ -13,8 +13,9 @@ ES.Views.Filter = Backbone.View.extend({
     event.preventDefault();
 
     var formParams = _.objectifyForm($(event.target).parents('form'));
-    var mergedParams = $.extend({}, formParams, that.collection.searchParams);
-
+    var mergedParams = $.extend({}, that.collection.searchParams, formParams);
+    
+    Backbone.history.navigate("#/redirecting");
     Backbone.history.navigate("#/" + _.uriifyObject(mergedParams));
   },
 
@@ -24,7 +25,7 @@ ES.Views.Filter = Backbone.View.extend({
 
     var filterHtml = new EJS({
       url: 'templates/filter'
-    }).render(that.collection.filters);
+    }).render(that.collection.searchParams);
 
     this.$el.html(filterHtml);
     return this;
