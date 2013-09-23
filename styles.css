@@ -79,6 +79,7 @@ header.no-search {
     outline: none;
 }
 
+/* buttons */
 #search-bar > form input[type=submit],
 form > button {
     float: left;
@@ -93,6 +94,11 @@ form > button {
     font-size: 25px;
     cursor: pointer;
     margin-left: -1px;
+}
+
+#search-bar > form input[type=submit]:focus,
+form > button:focus {
+    outline: none;
 }
 
 aside#filter {
