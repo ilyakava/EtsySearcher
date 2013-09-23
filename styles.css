@@ -19,18 +19,44 @@ aside, input[type=text], input[type=submit], h5, p, a {
 
 /* landing page basics */
 
+/* heading text */
+
 header {
-    width: 100%;
+    /* width: 100%; */
+    margin: auto;
+    -webkit-transition: all 3s ease;
 }
 
 header > h1 {
-    text-align: center;
     font-size: 100px;
     font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
     font-weight: 900;
     letter-spacing: 2;
     font-style: italic;
+    display: inline;
 }
+
+header > h1[name=ing] {
+    z-index: -1;
+}
+
+header > h1[name=search],
+header > h1[name=etsy] {
+    z-index: 10;
+    position: relative;
+    background-color: white;
+    left: 2px;
+    -webkit-transition: all 3s ease;
+}
+
+header > h1.no-search[name=etsy] {
+    left: -150px;
+}
+
+header.no-search {
+    padding-left: 150px;
+}
+
 
 #content {
     width: 820px;
