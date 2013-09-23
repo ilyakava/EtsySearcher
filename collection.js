@@ -29,8 +29,8 @@ ES.Collections.Listings = Backbone.Collection.extend({
     Etsy.getActiveListings(
       $.extend({}, baseParams, that.searchParams.attributes),
       function (data) {
-        that.add(data);
-        callback(that);
+        that.add(data, {merge: true});
+        if (callback) { callback(that); }
       }
     );
     return this;

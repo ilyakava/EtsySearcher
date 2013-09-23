@@ -7,6 +7,10 @@ ES.Views.ResultsList = Backbone.View.extend({
     var that = this;
     var renderCallback = that.render.bind(that);
     that.listenTo(that.collection, "reset add change remove", renderCallback);
+
+    _.bindAll(this, 'checkScroll');
+    // bind to window
+    $(window).scroll(this.checkScroll);
   },
 
   render: function () {
@@ -25,7 +29,25 @@ ES.Views.ResultsList = Backbone.View.extend({
     this.$el.append(new EJS({
       url: 'templates/listing_spinner',
     }).render());
-    
+
     return this;
-  }
+  },
+
+  checkScroll: function (event) {
+    var that = this;
+    var content = $(event.target);
+    var topPosition = content.scrollTop();
+
+    // var info = "top of Scrolling window: " + topPosition +
+    //   " , height of rendered content: " + content.height() +
+    //   " , height of browser: " + window.innerHeight;
+    // console.log(info);
+
+    // infinite scroll keeks fetching items for some reason
+
+    // if (topPosition + window.innerHeight >= content.height()) {
+    //   that.collection.populate();
+    //   content.scrollTop(topPosition - 100);
+    // }
+  },
 });
