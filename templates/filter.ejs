@@ -19,7 +19,8 @@
 	<label>Category:
 		<% var fillInCategory = this.category %>
 		<select name="category">
-			<option value="">None</option>
+			<!-- special none flag option, for reasons in collection.prune -->
+			<option value="none">None</option>
 			<% _(categories).each(function (category) { %>
 				<option
 					value="<%= category %>"
@@ -35,7 +36,7 @@
 	<label>Sort By:
 		<% var fillInSortOn = this.sort_on %>
 		<select name="sort_on">
-			<option value="">None</option>
+			<option value="none">None</option>
 			<% _(sortOptions).each(function (sortOption) { %>
 				<option
 					value="<%= sortOption %>"

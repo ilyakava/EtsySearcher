@@ -8,6 +8,10 @@ Etsy = {
       "includes": "Images:1:0"
     };
 
+    if (params) {
+      params = _.etsyifyHash(params);
+    }
+
     $.ajax({
       url: url,
       dataType: 'jsonp',

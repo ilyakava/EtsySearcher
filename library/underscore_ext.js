@@ -41,3 +41,18 @@ _.mixin({
     return JSON.parse(searchParams);
   }
 });
+
+_.mixin({
+  etsyifyHash : function(hash) {
+    // logic for never decoding an empty string as a value of params
+    // because that will be detrimental for etsy API
+    var newHash = new Object();
+    for (var key in hash) {
+      if (hash.key && (hash.key != "none")) {
+        newHash[key] = hash.key;
+      }
+    }
+    console.log("pruifying hash!: " + JSON.stringify(newHash));
+    return newHash;
+  }
+});
