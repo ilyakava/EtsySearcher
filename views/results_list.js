@@ -6,14 +6,14 @@ ES.Views.ResultsList = Backbone.View.extend({
   initialize: function () {
     var that = this;
     var renderCallback = that.render.bind(that);
-    that.listenTo(that.collection, "add change remove", renderCallback);
+    that.listenTo(that.collection, "reset add change remove", renderCallback);
   },
 
   render: function () {
     var that = this;
-    console.log("rendering results list");
+    console.log("rendering results list. length: " + that.collection.length);
     // clear this view, then render each listing
-    this.$el.html();
+    this.$el.html("");
 
     this.collection.each(function (listing) {
       var listingView = new ES.Views.OneListing({
