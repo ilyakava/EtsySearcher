@@ -11,7 +11,9 @@ _.mixin({
     var arrOfObjs = _(arrOfFormObjs).map(function (hash) {
       // weird bug with object literal notation
       var newHash = new Object();
-      newHash[hash.name] = hash.value;
+      if (hash.value) {
+        newHash[hash.name] = hash.value;
+      }
       return newHash;
     });
     // merge
