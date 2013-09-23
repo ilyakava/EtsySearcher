@@ -20,8 +20,7 @@ ES.Routers.Router = Backbone.Router.extend({
   search: function (uriSearch) {
     var that = this;
     var searchParams = _.objectifyURI(uriSearch);
-    console.log("route has changed, new search object!");
-    console.log(searchParams);
+    console.log("route has changed, new search object: " + JSON.stringify(searchParams));
 
     // Displaying the results... first create the collection
     // don't make a new collection for repeat searches

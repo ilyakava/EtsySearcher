@@ -11,14 +11,6 @@ ES.Collections.Listings = Backbone.Collection.extend({
   },
 
   setSearch: function (searchParams) {
-    // not in initialize because BB will make a item in the
-    // collection when arguments are passed into `new` collection call
-    // still... should this logic be in refine_searchbar? which is
-    // responsible for altering keywords after one is set?
-    if (this.searchParams) {
-      var oldKeywords = " " + this.searchParams["keywords"];
-      searchParams["keywords"] += oldKeywords;
-    }
     this.searchParams = searchParams;
     return this;
   },

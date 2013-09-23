@@ -20,9 +20,15 @@ ES.Views.RefineSearchbar = Backbone.View.extend({
     var that = this;
     event.preventDefault();
 
+    var oldParams = this.collection.searchParams;
     var formParams = _.objectifyForm($(event.target));
-    var mergedParams = $.extend({}, formParams, that.collection.searchParams);
+    // not in initialize because BB will make a item in the
+    // collection when arguments are passed into `new` collection call
+    // still... should this logic be in refine_searchbar? which is
+    // responsible for altering keywords after one is set?
+    var newKeywords = " " + formParams["keywords"];
+    oldParams["keywords"] += newKeywords;
 
-    Backbone.history.navigate("#/" + _.uriifyObject(mergedParams));
+    Backbone.history.navigate("#/" + _.uriifyObject(oldParams));
   }
 });
