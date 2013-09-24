@@ -67,7 +67,7 @@ ES.Collections.Listings = Backbone.Collection.extend({
       })
     );
     console.log("have pruned, " + remaining.length + " listings remain, and " + that.length + "in collection");
-    return that;
+    return this;
   }
 
 });
