@@ -1,5 +1,8 @@
 #Etsy Searcher
 
+##About
+* A Serverless Backbone app to Search Etsy's catalogue
+* To successfully make calls to Etsy's API, you will need to reveal your Etsy Developer API key in the global variable `EtsyAPI.keystring`
 
 ##TODO
 ####Crossed Out = Implemented Features
