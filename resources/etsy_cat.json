@@ -1,9 +1,3 @@
-// output of etsy_categories_to_json.sh
-// key/value pairs of Etsy's categories/sub-categories
-// these are to be used in the construction of the 'category' parameter
-// in Etsy API calls, About:
-// http://www.etsy.com/developers/documentation/getting_started/api_basics#type_category
-
 [
     {"accessories": "apron"},
     {"accessories": "belt"},
