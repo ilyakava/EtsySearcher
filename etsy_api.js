@@ -25,5 +25,20 @@ Etsy = {
         console.log("etsy active listings failed :(");
       }
     });
+  },
+  
+  genCatObjFromJSON: function () {
+    // assumes that input comes from my etsy_categories_to_json.sh file
+    var jsonArray = etsyCategories;
+    var out = {};
+    for(var i = 0; i < jsonArray.length; i++) {
+      for(var key in jsonArray[i]) {
+        if (!out[key]) {
+          out[key] = [];
+        }
+        out[key].push(jsonArray[i][key]);
+      }
+    }
+    return out;
   }
 };

@@ -1,4 +1,5 @@
-[
+// output of etsy_categories_to_json.sh
+window.etsyCategories = [
     {"accessories": "apron"},
     {"accessories": "belt"},
     {"accessories": "case"},
@@ -474,4 +475,4 @@
     {"woodworking": "sport"},
     {"woodworking": "supplies"},
     {"woodworking": "toy"}
-]
+];
