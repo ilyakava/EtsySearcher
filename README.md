@@ -5,6 +5,8 @@
 * To successfully make calls to Etsy's API, you will need to reveal your Etsy Developer API key in the global variable `EtsyAPI.keystring`
 
 ##TODO
+###General
+* Switch to JS [CORS](https://github.com/sagemath/sagecell/pull/263) posible instead of using jsonp?
 ####Crossed Out = Implemented Features
 * ~~Visit the homepage, launch a BB router~~
 * Search Etsy (change route for bookmarkability)
