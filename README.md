@@ -3,6 +3,7 @@
 ##About
 * A Serverless Backbone app to Search Etsy's catalogue
 * To successfully make calls to Etsy's API, you will need to reveal your Etsy Developer API key in the global variable `EtsyAPI.keystring`
+* If using chrome, launch the browser with `open -a 'Google Chrome' --args -allow-file-access-from-files` from the terminal before openning index.html
 
 ##TODO
 ###General
